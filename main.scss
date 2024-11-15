@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display&family=Lexend+Deca:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Lexend+Deca&display=swap');
 
 $bg-first-section: hsl(31, 77%, 52%);
 $bg-second-section: hsl(184, 100%, 22%);
@@ -6,6 +6,7 @@ $bg-third-section: hsl(179, 100%, 13%);
 $text-color: hsla(0, 0%, 100%, 0.75);
 $light-gray: hsl(0, 0%, 95%);
 $font-size-s: 0.9375rem;
+$font-size-xl: 2rem;
 
 * {
   margin: 0;
@@ -14,41 +15,93 @@ $font-size-s: 0.9375rem;
 }
 
 body {
-  font-family: 'Big Shoulders Display', sans-serif;
+  font-family: 'Lexend Deca', serif;
 }
 
 .card {
+  height: 1260px;
   width: 90%;
-  margin: 0 auto;
+  max-width: 340px;
+  margin: 80px auto;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+  border-radius: 8px;
+
+  &_section {
+    flex: 1;
+    padding: 44px 52px;
+    overflow: hidden;
+    transition: 0.5s ease-in-out;
+
+    &.active {
+      flex: 8;
+    }
+  }
 
   &_section:first-child {
     background: $bg-first-section;
+
+    button {
+      color: $bg-first-section;
+    }
   }
 
   &_section:nth-child(2) {
     background: $bg-second-section;
+
+    button {
+      color: $bg-second-section;
+    }
   }
 
   &_section:nth-child(3) {
     background: $bg-third-section;
+
+    button {
+      color: $bg-third-section;
+    }
   }
 
   &_title {
+    margin: 28px 0;
+    display: inline-block;
+    width: 100%;
     color: $light-gray;
-    font-family: 'Lexend Deca', sans-serif;
+    font-size: $font-size-xl;
+    font-family: 'Big Shoulders Display', serif;
     font-weight: 700;
+    text-transform: uppercase;
   }
 
-  &_text {
+  &_text,
+  &_learn {
+    line-height: 24px;
     font-size: $font-size-s;
     color: $text-color;
   }
 
   &_btn {
+    margin-top: 32px;
+    padding: 12px 36px;
     background: $light-gray;
     border: 1px solid $light-gray;
-    font-family: 'Big Shoulders Display', sans-serif;
+    font-family: 'Lexend Deca', serif;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+
+  &_learn {
+    margin-top: 24px;
+    display: none;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: 0.5s ease-in-out;
+  }
+
+  &_section.active &_learn {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
   }
 }
