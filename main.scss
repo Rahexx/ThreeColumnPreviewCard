@@ -7,6 +7,15 @@ $text-color: hsla(0, 0%, 100%, 0.75);
 $light-gray: hsl(0, 0%, 95%);
 $font-size-s: 0.9375rem;
 $font-size-xl: 2rem;
+$font-size-xxl: 2.5rem;
+$font-bold: 700;
+$space-xs: 12px;
+$space-s: 16px;
+$space-m: 28px;
+$space-l: 32px;
+$space-xl: 52px;
+$space-xxl: 74px;
+$space-xxxl: 80px;
 
 * {
   margin: 0;
@@ -22,7 +31,7 @@ body {
   height: 1304px;
   width: 90%;
   max-width: 340px;
-  margin: 80px auto;
+  margin: $space-xxxl auto;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -31,7 +40,7 @@ body {
 
   &_section {
     flex: 1;
-    padding: 52px;
+    padding: $space-xl;
     overflow: hidden;
     transition: 0.5s ease-in-out;
 
@@ -65,13 +74,13 @@ body {
   }
 
   &_title {
-    margin: 28px 0;
+    margin: $space-m 0;
     display: inline-block;
     width: 100%;
     color: $light-gray;
     font-size: $font-size-xl;
     font-family: 'Big Shoulders Display', serif;
-    font-weight: 700;
+    font-weight: $font-bold;
     text-transform: uppercase;
   }
 
@@ -83,13 +92,13 @@ body {
   }
 
   &_btn {
-    margin-top: 32px;
-    padding: 12px 32px;
+    margin-top: $space-l;
+    padding: $space-xs $space-l;
     background: $light-gray;
     border: 1px solid $light-gray;
     font-size: $font-size-s;
     font-family: 'Lexend Deca', serif;
-    border-radius: 20px;
+    border-radius: $space-m;
     cursor: pointer;
   }
 
@@ -117,8 +126,9 @@ body {
     }
 
     &_section &_btn {
-      margin-top: 52px;
-      transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
+      margin-top: $space-xl;
+      transition: background 0.5s ease-in-out, color 0.5s ease-in-out,
+        opacity 0.3s ease-in 0.3s;
 
       &:hover {
         background: transparent;
@@ -152,7 +162,7 @@ body {
       position: relative;
 
       &.inactive {
-        padding: 52px 16px 52px 32px;
+        padding: $space-xl $space-s $space-xl $space-l;
 
         .card_icon {
           display: inline-block;
@@ -161,11 +171,13 @@ body {
 
         .card_text {
           height: 0;
+          opacity: 0;
           visibility: hidden;
           pointer-events: none;
         }
 
-        button {
+        .card_btn {
+          opacity: 0;
           visibility: hidden;
           pointer-events: none;
         }
@@ -178,14 +190,14 @@ body {
 
     &_text {
       max-width: 210px;
-      transition: visibility 0.1s ease-in;
+      transition: opacity 0.3s 0.4s;
     }
 
     &_learn {
       position: absolute;
       top: 0;
       left: 100%;
-      margin: 52px;
+      margin: $space-xl;
       height: 460px;
       width: 272px;
       animation: none;
@@ -196,6 +208,42 @@ body {
       animation: none;
       transform: translateX(-420px);
       transition: 0.5s ease-in-out 0.2s;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .card {
+    height: 500px;
+
+    &_section {
+      &.active {
+        flex: 4;
+      }
+
+      &.inactive {
+        padding: $space-xl 0;
+
+        .card_icon {
+          margin: 0 38px;
+        }
+        .card_title {
+          text-align: center;
+        }
+      }
+    }
+
+    &_title {
+      margin: $space-l 0;
+      font-size: $font-size-xxl;
+    }
+
+    &_section &_btn {
+      margin-top: $space-xxl;
+    }
+
+    &_section.active &_learn {
+      transform: translateX(-400px);
     }
   }
 }
