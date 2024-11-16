@@ -50,15 +50,18 @@
           Take an SUV for its spacious interior, power, and versatility. Perfect
           for your next family vacation and off-road adventures.
         </p>
-        <button class="card_btn">Learn More</button>
         <p class="card_learn">
-          Sedans offer style, practicality, and efficiency, making them a
-          popular choice. With spacious interiors, they provide comfort for
-          passengers and luggage, whether in the city or on a long trip. Their
-          aerodynamic design boosts fuel efficiency and reduces noise. Equipped
-          with advanced safety features and modern technology, sedans offer
-          convenience and reliability for everyday commutes or longer journeys.
+          Choose an SUV for its blend of comfort, strength, and adaptability.
+          Whether you're heading to a weekend getaway or exploring
+          off-the-beaten-path locations, it’s the perfect choice for any
+          journey. SUVs provide ample room for both passengers and cargo,
+          ensuring everyone has space to relax. With powerful engines and
+          off-road capabilities, they excel in both urban environments and
+          rugged landscapes. Enjoy the peace of mind that comes with enhanced
+          safety features and reliable performance no matter where the road
+          takes you.
         </p>
+        <button class="card_btn">Learn More</button>
       </section>
       <section class="card_section">
         <img
@@ -71,16 +74,35 @@
           Cruise in the best car brands without the bloated prices. Enjoy the
           enhanced comfort of a luxury rental and arrive in style.
         </p>
-        <button class="card_btn">Learn More</button>
         <p class="card_learn">
           Luxury vehicles offer unmatched comfort, advanced features, and
           premium craftsmanship. With plush interiors and cutting-edge
           technology, they blend elegance with performance. Whether for a
-          special event or a treat, a luxury rental lets you enjoy the
+          special event or a treat, a luxury rental allows you to enjoy the
           experience without the high cost. Enjoy smooth rides, top safety
-          features, and the prestige of world-class brands.
+          features, and the prestige of world-class brands, ensuring a stylish
+          and comfortable journey every time, making every moment feel like an
+          extraordinary adventure.
         </p>
+        <button class="card_btn">Learn More</button>
       </section>
     </main>
+
+    <script>
+      const btns = document.querySelectorAll('.card_btn');
+
+      btns.forEach((btn) =>
+        btn.addEventListener('click', () => {
+          const scrollPosition = window.scrollY;
+          btn.parentElement.classList.toggle('active');
+
+          if (btn.parentElement.classList.contains('active'))
+            btn.textContent = 'Show Less';
+          else btn.textContent = 'Learn More';
+
+          window.scrollTo(0, scrollPosition);
+        }),
+      );
+    </script>
   </body>
 </html>
