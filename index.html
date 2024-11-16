@@ -95,6 +95,15 @@
           const scrollPosition = window.scrollY;
           btn.parentElement.classList.toggle('active');
 
+          btns.forEach((active) => {
+            if (
+              !active.parentElement.classList.contains('active') &&
+              btn !== active
+            ) {
+              active.parentElement.classList.toggle('inactive');
+            }
+          });
+
           if (btn.parentElement.classList.contains('active'))
             btn.textContent = 'Show Less';
           else btn.textContent = 'Learn More';
